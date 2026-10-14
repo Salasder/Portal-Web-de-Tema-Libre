@@ -702,12 +702,9 @@ body.pag-principal {
     inset: 0;
     z-index: -1;
     background:
-        linear-gradient(
-            rgba(12, 22, 30, 0.65),
-            rgba(12, 22, 30, 0.85)
-        ),
-        url("../img/Yamaha%20DT%20125%20en%20sendero%20natural.png")
-        center / cover no-repeat;
+        linear-gradient(rgba(12, 22, 30, 0.65),
+            rgba(12, 22, 30, 0.85)),
+        url("../img/Yamaha%20DT%20125%20en%20sendero%20natural.png") center / cover no-repeat;
 }
 
 .archivo-cabecera {
@@ -745,7 +742,7 @@ body.pag-principal {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
-.ficha-historica > img {
+.ficha-historica>img {
     width: 100%;
     height: 100%;
     min-height: 350px;
@@ -756,7 +753,7 @@ body.pag-principal {
     padding: 32px;
 }
 
-.ficha-contenido > span {
+.ficha-contenido>span {
     color: #a63b30;
     font-size: 12px;
     font-weight: bold;
@@ -781,4 +778,144 @@ body.pag-principal {
     background: #a63b30;
     color: #fff;
     border-radius: 4px;
+}
+
+@media (max-width: 1199px) {
+
+    .header,
+    #header.header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-height: 70px;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        z-index: 9999 !important;
+        box-sizing: border-box;
+    }
+
+    .header .container,
+    #header .container {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .header .cta-btn,
+    #header .cta-btn {
+        position: relative;
+        z-index: 10000;
+        margin: 0 10px 0 0;
+        padding: 8px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .header .mobile-nav-toggle,
+    #header .mobile-nav-toggle {
+        display: block;
+        position: relative;
+        z-index: 10001;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    #header #nmenu {
+        display: block;
+    }
+
+    #header #nmenu>ul {
+        display: none;
+    }
+
+    .mobile-nav-active #header #nmenu>ul,
+    .mobile-nav-active #nmenu>ul {
+        display: block;
+    }
+
+    .mobile-nav-active .nmenu {
+        background: transparent !important;
+    }
+
+    .mobile-nav-active .nmenu>ul {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .mobile-nav-active .nmenu a,
+    .mobile-nav-active .nmenu a:focus {
+        color: #ffffff !important;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+    }
+
+
+    .mobile-nav-active .header,
+    .mobile-nav-active #header {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+}
+
+
+/* Evita que el contenido tape el encabezado */
+@media (max-width: 575px) {
+    .hero {
+        min-height: 100svh;
+        padding: 90px 15px 40px;
+    }
+}
+
+/* Elementos que contienen submenús */
+.nmenu ul li {
+    position: relative;
+}
+
+/* Submenús ocultos por defecto */
+.nmenu ul li>ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    z-index: 9999;
+}
+
+/* Mostrar el submenú al pasar el cursor */
+.nmenu ul li:hover>ul {
+    display: block;
+}
+
+/* Submenú anidado: aparece a la derecha */
+.nmenu ul li>ul li>ul {
+    top: 0;
+    left: 100%;
+}
+
+/* Enlaces de los submenús */
+.nmenu ul li>ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* Efecto al pasar el cursor */
+.nmenu ul li>ul li a:hover {
+    background: #eee;
 }
